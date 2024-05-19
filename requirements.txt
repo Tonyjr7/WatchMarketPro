@@ -1,5 +1,4 @@
-telebot
-requests
-pillow
-threading
-dotenv
+telebot==0.0.4
+requests==2.28.1
+pillow==9.4.0
+python-dotenv==0.21.0
