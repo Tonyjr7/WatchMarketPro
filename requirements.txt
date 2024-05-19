@@ -1,0 +1,7 @@
+os
+telebot
+requests
+pillow
+io
+threading
+dotenv
