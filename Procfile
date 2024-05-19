@@ -1,1 +1,1 @@
-worker: python MarketWatchPro.py
+worker: python WatchMarketPro.py
