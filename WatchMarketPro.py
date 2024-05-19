@@ -1,12 +1,10 @@
-import os
-from dotenv import load_dotenv
 import telebot
 import requests
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 from threading import Timer
 
-# Fetching the API keys from environment variables
+# Replace these with your API keys
 TELEGRAM_API_TOKEN = '6950576768:AAErgx7BrADxLE77IrFWCmbOtoaTHfLxD8A'
 ALPHA_VANTAGE_API_KEY = 'KWBKWOAALRFG0UVG'
 
@@ -19,11 +17,8 @@ price_alerts = {}
 
 bot = telebot.TeleBot(TELEGRAM_API_TOKEN)
 
-# Rest of the bot code remains the same...
-
-
 def start(message):
-    bot.reply_to(message, 'Welcome to the Forex and Crypto Market Monitor Bot!😉')
+    bot.reply_to(message, 'Welcome to the Forex and Crypto Market Monitor Bot!')
 
 def get_forex_price(message):
     try:
