@@ -17,10 +17,12 @@ price_alerts = {}
 
 bot = telebot.TeleBot(TELEGRAM_API_TOKEN)
 
-def start(message):
+@bot.message_handler(commands=['start'])
+def handle_start(message):
     bot.reply_to(message, 'Welcome to the Forex and Crypto Market Monitor Bot!')
 
-def get_forex_price(message):
+@bot.message_handler(commands=['forex'])
+def handle_forex(message):
     try:
         args = message.text.split()
         from_currency = args[1].upper()
@@ -35,7 +37,8 @@ def get_forex_price(message):
     except (IndexError, KeyError):
         bot.reply_to(message, 'Usage: /forex <from_currency> <to_currency>')
 
-def get_crypto_price(message):
+@bot.message_handler(commands=['crypto'])
+def handle_crypto(message):
     try:
         args = message.text.split()
         crypto = args[1].lower()
@@ -50,7 +53,8 @@ def get_crypto_price(message):
     except (IndexError, KeyError):
         bot.reply_to(message, 'Usage: /crypto <crypto> <currency>')
 
-def set_price_alert(message):
+@bot.message_handler(commands=['alert'])
+def handle_alert(message):
     try:
         args = message.text.split()
         asset_type = args[1].lower()
@@ -114,22 +118,6 @@ def check_alerts():
 
     Timer(10, check_alerts).start()
 
-@bot.message_handler(commands=['start'])
-def handle_start(message):
-    start(message)
-
-@bot.message_handler(commands=['forex'])
-def handle_forex(message):
-    get_forex_price(message)
-
-@bot.message_handler(commands=['crypto'])
-def handle_crypto(message):
-    get_crypto_price(message)
-
-@bot.message_handler(commands=['alert'])
-def handle_alert(message):
-    set_price_alert(message)
-
 if __name__ == '__main__':
     Timer(10, check_alerts).start()
-    bot.polling()
+    bot.polling(none_stop=True, interval=0)
