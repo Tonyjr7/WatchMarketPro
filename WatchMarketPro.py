@@ -24,7 +24,7 @@ def handle_start(message):
 
 @bot.message_handler(commands=['help'])
 def handle_help(message):
-    bot.reply_to(message, 'This bot allows users to set price alerts using the /alert <forex|crypto> <asset> <target_price> command. For Forex, the asset should be in the format FROM/TO (e.g., EUR/USD), and for Crypto, the asset should be the cryptocurrency ID(e.g., bitcoin)'
+    bot.reply_to(message, 'This bot allows users to set price alerts using the /alert <forex|crypto> <asset> <target_price> command. For Forex, the asset should be in the format FROM/TO (e.g., EUR/USD), and for Crypto, the asset should be the cryptocurrency ID(e.g., bitcoin)')
 
 @bot.message_handler(commands=['forex'])
 def handle_forex(message):
