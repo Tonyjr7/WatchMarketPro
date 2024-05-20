@@ -3,10 +3,11 @@ import requests
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 from threading import Timer
+import os
 
-# Replace these with your API keys
-TELEGRAM_API_TOKEN = '6950576768:AAErgx7BrADxLE77IrFWCmbOtoaTHfLxD8A'
-ALPHA_VANTAGE_API_KEY = 'KWBKWOAALRFG0UVG'
+# Get the tokens from environment variables
+TELEGRAM_API_TOKEN = os.getenv('TELEGRAM_API_TOKEN')
+ALPHA_VANTAGE_API_KEY = os.getenv('ALPHA_VANTAGE_API_KEY')
 
 # API URLs
 FOREX_API_URL = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={}&to_currency={}&apikey={}'
